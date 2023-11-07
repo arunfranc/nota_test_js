@@ -1,5 +1,5 @@
 <?php
-
+ 
 //Create TableCreator class
  class TableCreator
 {
