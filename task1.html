@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reordering</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .btn-group button {  
+          border: 1px solid blue; /* Green border */          
+          padding: 10px 24px; /* Some padding */
+          cursor: pointer; /* Pointer/hand icon */
+          display: block; /* Make the buttons appear below each other */
+        }
+
+        /* Add a background color on hover */
+        .btn-group button:hover {
+          background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Create buttons -->
+    <div class="btn-group">
+        <button style="margin-bottom:30px">1</button>
+        <button style="margin-bottom:30px">2</button>
+        <button style="margin-bottom:30px">3</button>
+        <button style="margin-bottom:30px">4</button>
+        <button style="margin-bottom:30px">5</button>
+    </div>
+
+    <script>
+        // $(document).ready(function() {
+            // Add a click event listener to all buttons
+            $('button').click(function() {
+                var $this = $(this); // Get the clicked button
+
+                // Find the index of the clicked button 
+                var currentIndex = $('button').index($this);
+
+                // console.log(currentIndex);
+
+                if (currentIndex > 0) {
+                    // Swap with the upper neighbor
+                    $this.insertBefore($('button:eq(' + (currentIndex - 1) + ')'));
+                } else {
+                    // Swap with the below neighbor
+                    $this.insertAfter($('button:eq(' + (currentIndex + 1) + ')'));
+                }
+            });
+        // });
+    </script>
+</body>
+</html>
